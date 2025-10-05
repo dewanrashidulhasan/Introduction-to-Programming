@@ -19,12 +19,12 @@
 //     return 0;
 // } 
 
-#include<stdio.h>
-#include<stdbool.h>
-int main()
-{
-    bool b = true;
-    bool c = false;
-    printf("%d\n", b);
-    printf("%d", c);
-}
+// #include<stdio.h>
+// #include<stdbool.h>
+// int main()
+// {
+//     bool b = true;
+//     bool c = false;
+//     printf("%d\n", b);
+//     printf("%d", c);
+// }
