@@ -1,2 +1,1 @@
-Summation = 15
-Subtraction = 5
+2
