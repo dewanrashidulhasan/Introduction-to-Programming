@@ -17,10 +17,10 @@
 //     printf("%lld \n%lf", a, f);
 //     return 0;
 // }
-#include<stdio.h>
-int main()
-{
-    int num = 100;
-    printf("Number is = %d", num);
-    return 0;
-}
+// #include<stdio.h>
+// int main()
+// {
+//     int num = 100;
+//     printf("Number is = %d", num);
+//     return 0;
+// }
