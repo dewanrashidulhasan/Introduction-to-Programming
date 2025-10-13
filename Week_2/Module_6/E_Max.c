@@ -1,9 +1,8 @@
 // #include<stdio.h>
 // #include<limits.h>
 // int main()
-// {   int n;
+// {   int n, max=INT_MIN;
 //     scanf("%d",&n);
-//     int max=INT_MIN;
 // for (int i = 1; i <= n; i++)
 // {
 //     int val;
@@ -22,9 +21,8 @@
 // #include<stdio.h>
 // #include<limits.h>
 // int main()
-// {   int n;
-//     scanf("%d",&n);
-//     int min=INT_MAX;
+// {   int n, min=INT_MAX;
+//     scanf("%d",&n); 
 // for (int i = 1; i <= n; i++)
 // {
 //     int val;
