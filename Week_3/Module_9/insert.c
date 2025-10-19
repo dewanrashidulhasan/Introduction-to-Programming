@@ -7,7 +7,7 @@ int main()
     {
         scanf("%d",&a[i]);
     }
-    int indx,val;
+    int indx,val;//index holo 3 and val holo 100
     scanf("%d %d", &indx, &val);
     for (int  i = n; i>=indx+1; i--)
     {
