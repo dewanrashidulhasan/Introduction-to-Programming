@@ -7,15 +7,31 @@ int main()
     {
         scanf("%lld",&a[i]);
     }
+    
+    int same =1;
     for (int  i = 0, j=n-1; i<j; i++, j--)
     {
-        int temp= a[i];
-        a[i]=a[j];
-        a[j]=temp;
+        if (a[i]!=a[j])
+        {
+            same =0;
+            break;
+        }
+        
+
+    
     }
-     for (int  i = 0; i < n; i++)
+    
+    if (same)
     {
-        printf("%lld ",a[i]);
+        printf("YES");
     }
+    else
+    {
+        printf("NO");
+    }
+    
+    
+     
+     
     return 0;
 }
