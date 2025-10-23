@@ -1,37 +1,37 @@
 #include<stdio.h>
 #include<string.h>
 int main()
-{   char a[101],b[101];
-    scanf("%s %s",&a,&b);
+{   char x[101],y[101];
+    scanf("%s %s",&x,&y);
     int i=0;
     while (1)
     {
-        if (a[i]=='\0' && b[i]=='\0')
+        if (x[i]=='\0' && y[i]=='\0')
         {
-            printf("%s",a);
+            printf("%s",x);
             break;
         }
-        else if (a[i]=='\0')
+        else if (x[i]=='\0')
         {
-            printf("%s",a);
+            printf("%s",x);
             break;
         }
-        else if (b[i]=='\0')
+        else if (y[i]=='\0')
         {
-            printf("%s",b);
+            printf("%s",y);
             break;
         }
-        else if (a[i]<b[i])
+        else if (x[i]<y[i])
         {
-            printf("%s",a);
+            printf("%s",x);
             break;
         }
-        else if (b[i]<a[i])
+        else if (y[i]<x[i])
         {
-            printf("%s",b);
+            printf("%s",y);
             break;
         }
-        else if (a[i]==b[i])
+        else if (x[i]==y[i])
         {
             i++;
         }
