@@ -22,10 +22,10 @@ int dev(int a,int b)
 int main()
 {   int a,b;
     scanf("%d %d",&a,&b);
-    int val= sum(a,b);
-    int val2 = sub(a,b);
-    int val3 =mult(a,b);
-    int val4 =dev(a,b);
-    printf("%d\n%d\n%d\n%d",val,val2,val3,val4);
+    int ans= sum(a,b);
+    int ans2 = sub(a,b);
+    int ans3 =mult(a,b);
+    int ans4 =dev(a,b);
+    printf("%d\n%d\n%d\n%d",ans,ans2,ans3,ans4);
     return 0;
 }
