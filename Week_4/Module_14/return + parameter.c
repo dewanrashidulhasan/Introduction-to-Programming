@@ -1,17 +1,22 @@
 #include<stdio.h>
-int sum(int num1,int num2)
+int sum(int a,int b)
 {
-    int ans = num1+num2;
+    int ans = a+b;
     return ans;
 }
-int sub(int num1,int num2)
+int sub(int a,int b)
 {
-    int ans = num1-num2;
+    int ans = a-b;
     return ans;
 }
-int mult(int num1,int num2)
+int mult(int a,int b)
 {
-    int ans = num1*num2;
+    int ans = a*b;
+    return ans;
+}
+int dev(int a,int b)
+{
+    int ans = a/b;
     return ans;
 }
 int main()
@@ -20,6 +25,7 @@ int main()
     int val= sum(a,b);
     int val2 = sub(a,b);
     int val3 =mult(a,b);
-    printf("%d\n%d\n%d",val,val2,val3);
+    int val4 =dev(a,b);
+    printf("%d\n%d\n%d\n%d",val,val2,val3,val4);
     return 0;
 }
