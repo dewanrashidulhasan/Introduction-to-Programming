@@ -5,7 +5,7 @@ int small_to_capital_and_capital_to_small(char x)
     {
         return x-=32;
     }
-    if (x>='A' && x<='Z')
+    else if (x>='A' && x<='Z')
     {
         return x+=32;
     }
