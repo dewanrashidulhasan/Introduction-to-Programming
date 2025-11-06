@@ -1,0 +1,1 @@
+{"name":"Local: abs","url":"d:\\Phitron\\Introduction-to-Programming\\Week_4\\Module_15.5\\abs.c","tests":[{"id":1762404274819,"input":"5","output":"5"},{"id":1762404279613,"input":"-7","output":"7"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Phitron\\Introduction-to-Programming\\Week_4\\Module_15.5\\abs.c","group":"local","local":true}

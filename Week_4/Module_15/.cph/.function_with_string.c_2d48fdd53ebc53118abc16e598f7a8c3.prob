@@ -1,0 +1,1 @@
+{"name":"Local: function_with_string","url":"d:\\Phitron\\Introduction-to-Programming\\Week_4\\Module_15\\function_with_string.c","tests":[{"id":1762347273132,"input":"hello","output":"hello"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Phitron\\Introduction-to-Programming\\Week_4\\Module_15\\function_with_string.c","group":"local","local":true}
