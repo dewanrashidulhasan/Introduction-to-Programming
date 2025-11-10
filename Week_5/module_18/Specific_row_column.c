@@ -26,4 +26,5 @@ int main()
     {
         printf("%d ",a[i][specific_column]);
     }
+    return 0;
 }
