@@ -2,17 +2,23 @@
 void one_to_n(int n,int val)
 {
     
-    if (val>n)
+    if (val==n)
     {
         return;
     }
-    printf("%d\n",val);
+    
     val+=1;
     one_to_n(n,val);
+    printf("%d",val);
+    if (val>1)
+    {
+        printf(" ");
+    }
+    
 }
 int main()
 {   int n;
     scanf("%d",&n);
-    one_to_n(n,1);
+    one_to_n(n,0);
     return 0;
 }

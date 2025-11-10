@@ -7,7 +7,7 @@
 //     }
     
 //     printf("%d\n",n);
-//     n--;
+//     n-=1;
 //     hello(n);
 // }
 // int main()
@@ -26,7 +26,7 @@ void hello(int n, int m)
         return;
     }
     
-    n++;
+    n+=1;
     hello(n,m);
     printf("%d\n",n);
 }
