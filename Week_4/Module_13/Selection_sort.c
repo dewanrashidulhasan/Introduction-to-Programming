@@ -31,6 +31,7 @@
 //     return 0;
 // }
 
+//  descending order------------
 
 #include<stdio.h>
 int main()
