@@ -2,23 +2,36 @@
 int main()
 {   int n;
     scanf("%d",&n);
-    int star =1;
-    int space =n;
-    for (int i = 0; i <n; i++)
+    int high =n+5;
+    for (int  i = 1; i <=high; i++)
     {
-        for (int k = 0; k <space; k++)
+        int space=high-i;
+        int stars=2*i-n;
+        if (stars>0)
+        {
+            for (int j = 0; j < space; j++)
         {
             printf(" ");
         }
-        for (int j = 0; j <star; j++)
+        for (int j = 0; j < stars; j++)
         {
             printf("*");
         }
-        
         printf("\n");
-        space--;
-        star+=2;
+        }
+        
+        
     }
+    for (int i = 0; i < 5; i++)
+    {
+        printf("     ");
+        for (int i = 0; i < n; i++)
+        {
+            printf("*");
+        }
+       printf("\n"); 
+    }
+    
     
     return 0;
 }
