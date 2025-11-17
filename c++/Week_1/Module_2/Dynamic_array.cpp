@@ -6,7 +6,7 @@ int main()
     int n;
     cin >>n;
     // int a[n]; //static array
-    int * a=new int[n];//dynamic array
+    int *a=new int[n];//dynamic array
     for (int  i = 0; i < n; i++)
     {
         cin>>a[i];
@@ -16,6 +16,6 @@ int main()
     {
         cout<<a[i]<<" ";
     }
-    
+    delete[] a;
     return 0;
 }
