@@ -1,0 +1,1 @@
+{"name":"Local: Dynamic_array_size_incrase","url":"d:\\Phitron\\Module_2\\Dynamic_array_size_incrase.cpp","tests":[{"id":1763391867747,"input":"6 7\n3 4 2 1 5 7","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Phitron\\Module_2\\Dynamic_array_size_incrase.cpp","group":"local","local":true}
