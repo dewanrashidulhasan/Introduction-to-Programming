@@ -1,0 +1,1 @@
+{"name":"Local: string","url":"d:\\Phitron\\Introduction-to-Programming\\c++\\Week_1\\Module_1\\string.cpp","tests":[{"id":1763305367949,"input":"3\nhello world","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Phitron\\Introduction-to-Programming\\c++\\Week_1\\Module_1\\string.cpp","group":"local","local":true}
