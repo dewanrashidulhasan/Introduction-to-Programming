@@ -1,9 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-int main()
+int fmax(int &n)
 {
-    int n;
     cin >>n;
     int *a=new int[n];
     for (int  i = 0; i < n; i++)
@@ -16,7 +14,15 @@ int main()
         mx=max(mx,a[i]);   
         mx=max(mx,a[j]);   
     }
-    cout<<mx<<endl;
+    
     delete[] a;
+    return mx;
+}
+
+int main()
+{
+    int n;
+    int mx= fmax(n);
+    cout<<mx<<endl;
     return 0;
 }
