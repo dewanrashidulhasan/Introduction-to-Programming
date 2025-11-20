@@ -3,12 +3,13 @@ using namespace std;
 class student 
 {
     public:
-    
+    char name[101];
     int roll;
     int cls;
     double gpa;
-    student(int r,int c,double g)
+    student(char ch[],int r,int c,double g)
     {
+        strcpy(name,ch);
         roll=r;
         cls=c;
         gpa=g;
@@ -17,16 +18,21 @@ class student
 };
 int main()
 {
-    int r;
-    int c;
+    char ch[101];
+    int r,c;
     double g;
+    cin.getline(ch,101);
     cin >>r>>c>>g;
-    student a(r,c,g);
-    student b(r,c,g);
-    cout <<a.roll<<" "<<a.cls<<
-    " "<<a.gpa<<endl;
+    student a(ch,r,c,g);
+    cin.ignore();
+    cin.getline(ch,101);
+    cin >>r>>c>>g;
+    student b(ch,r,c,g);
+    cin.ignore();
+    cout << a.name << " " << a.roll <<
+     " " << a.cls << " " << a.gpa << endl;
 
-    cout <<b.roll<<" "<<b.cls<<
-    " "<<b.gpa<<endl;
+    cout << b.name << " " << b.roll <<
+     " " << b.cls << " " << b.gpa << endl;
     return 0;
 }
