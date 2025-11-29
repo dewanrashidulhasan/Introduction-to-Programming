@@ -11,12 +11,12 @@ int main()
     // cout<<s<<endl<<endl;
     // s+=s2;
     // cout<<s<<endl<<endl;
-    // s.replace(6,0,"Bangladesh in the ");
-    // cout<<s<<endl;
+    s.replace(6,0,"Bangladesh in the ");
+    cout<<s<<endl;
     // s.erase(3,2);
     // cout<<s<<endl;
-    s.insert(6,"Dewan ");
-    cout<<s<<endl;
+    // s.insert(6,"Dewan ");
+    // cout<<s<<endl;
     
     return 0;
 }
