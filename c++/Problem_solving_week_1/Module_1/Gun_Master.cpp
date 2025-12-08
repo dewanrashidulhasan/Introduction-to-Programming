@@ -14,24 +14,28 @@ int main()
         {
             cin>>a[i];
         }
-        int count=0;
+        int gunswitch=0;
+        int currentgun=0;
         for (int i = 0; i < n; i++)
         {
-            if (a[0]<=d)
+            int needgun=0;
+            if (a[i]<=d)
             {
-                count=0;
+                needgun=0;
             }
-            else if (a[i]>d)
+            else
             {
-                count+=1;
+                needgun=1;
             }
-            else if (a[i]<d)
+            if (needgun!=currentgun)
             {
-                count+=1;
+                gunswitch++;
+                currentgun=needgun;
             }
             
+            
         }
-        cout<<count<<endl;
+        cout<<gunswitch<<endl;
     }
     return 0;
 }
