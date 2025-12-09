@@ -15,25 +15,20 @@ int main()
             cin>>a[i];
         }
         int gunswitch=0;
-        int currentgun=0;
+        char gun='c';
         for (int i = 0; i < n; i++)
         {
-            int needgun=0;
-            if (a[i]<=d)
+            if (a[i]>d&&gun=='c')
             {
-                needgun=0;
-            }
-            else
-            {
-                needgun=1;
-            }
-            if (needgun!=currentgun)
-            {
+                gun='1';
                 gunswitch++;
-                currentgun=needgun;
             }
-            
-            
+            else if (a[i]<=d && gun=='1')
+            {
+                gun='c';
+                gunswitch++;
+            }
+              
         }
         cout<<gunswitch<<endl;
     }
