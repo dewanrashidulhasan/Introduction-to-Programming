@@ -39,6 +39,6 @@ int main()
     // }
     auto it=find(v.begin(),v.end(),2);
     cout<<*it<<endl;
-    
+    cout<<v.front()<<" "<<v.back()<<endl;
     return 0;
 }
