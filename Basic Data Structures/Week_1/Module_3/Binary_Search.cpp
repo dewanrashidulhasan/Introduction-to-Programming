@@ -9,6 +9,7 @@ int main()
     {
         cin>>v[i];
     }
+    sort(v.begin(),v.end());
     int val;
     cin>>val;
     int flag=0; 
