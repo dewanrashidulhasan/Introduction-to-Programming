@@ -14,11 +14,14 @@ class Node
 };
 int main()
 {
-    Node a(10),b(20),c(30);
+    Node* head=new Node(10);
+    Node* a=new Node(20);
+    Node* b=new Node(30);
     
-    a.next=&b;
-    b.next=&c;
-    cout<<a.val<<" "<<a.next->val<<
-    " "<<a.next->next->val<<endl;
+    head->next=a;
+    a->next=b;
+    
+    cout<<head->val<<" "<<head->next->val<<
+    " "<<head->next->next->val<<endl;
     return 0;
 }
