@@ -4,39 +4,30 @@ int main()
 {
     int n;
     cin>>n;
-    int *a=new int[n];
+    int a[n];
     for (int i = 0; i < n; i++)
     {
         cin>>a[i];
     }
-    int mxval= a[0];
-    int mxcount=1;
-    int currentval=a[0];
-    int currentcount=1;
+    int fre=1,max_fre=1,num;
     for (int i = 1; i < n; i++)
     {
-        if (a[i]==currentval)
+        if (a[i]==a[i-1])
         {
-            currentcount++;
+            fre++;
+            if (fre>max_fre)
+            {
+                max_fre=fre;
+                num=a[i];
+            }
+            
         }
         else
         {
-            if (currentcount>mxcount)
-            {
-                mxcount=currentcount;
-                mxval=currentval;
-            }
-            currentval=a[i];
-            currentcount=1;
+            fre=1;
         }
-        
+         
     }
-    if (currentcount>mxcount)
-    {
-            mxcount=currentcount;
-            mxval=currentval;
-    }
-    cout<<mxval<<" "<<mxcount<<endl;
-    delete[]a;
+   cout<<num<<" "<<max_fre<<endl;
     return 0;
 }

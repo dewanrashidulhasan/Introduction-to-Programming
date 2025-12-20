@@ -9,9 +9,9 @@ int main()
         string s;
         cin>>s;
         int frequ[26]={0};
-        for (auto it = s.begin(); it != s.end(); it++)
+        for(char c:s)
         {
-            frequ[*it-'a']++;
+            frequ[c-'a']++;
         }
         int odd=0;
         for (int i = 0; i < 26; i++)
@@ -22,13 +22,15 @@ int main()
             }
             
         }
-        int final_chr_needed=0;
-
-        if (odd>1)
+        if (odd==0)
         {
-            final_chr_needed=odd-1;
+            cout<<odd<<endl;
         }
-        cout<<final_chr_needed<<endl;
+        else
+        {
+            cout<<odd-1<<endl;
+        }
+        
     }
     
     return 0;
