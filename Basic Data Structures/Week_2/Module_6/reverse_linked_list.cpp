@@ -36,6 +36,15 @@ void print_linked_list(Node*  &head)
     }
     
 }
+void print_reverse(Node* temp)
+{
+    if (temp==NULL)
+    {
+        return;
+    }
+    print_reverse(temp->next);
+    cout<<temp->val<<endl;
+}
 int main()
 {
     Node* head=NULL;
@@ -50,6 +59,6 @@ int main()
         }
         insert_at_tail(head,tail,val);
     }
-    print_linked_list(head);
+    print_reverse(head);
     return 0;
 }
