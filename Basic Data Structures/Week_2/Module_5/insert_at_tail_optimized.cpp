@@ -12,6 +12,7 @@ class Node
     }
     
 };
+
 void insert_at_tail(Node* &head,Node* &tail,int val)
 {
     Node* newnode=new Node(val);
