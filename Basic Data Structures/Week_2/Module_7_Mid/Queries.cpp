@@ -37,7 +37,42 @@ void insert_at_tail(Node* &head,Node* &tail,int input_val)
     tail->next=newnode;
     tail=newnode;
 }
-
+void delete_index(Node* &head,Node* &tail,int indx)
+{
+    if (head==NULL)
+    {
+        return;
+    }
+    if (indx==0)
+    {
+        Node* temp=head;
+        head=head->next;
+        delete temp;
+        if (head==NULL)
+        {
+        tail=NULL;
+        
+        }
+        return;
+    }
+    
+    Node* temp=head;
+    for (int i = 0; i < indx-1&&temp!=NULL; i++)
+    {
+        temp=temp->next;
+    }
+    if (temp==NULL||temp->next==NULL)
+    {
+        return;
+    }
+        Node* deleteNode=temp->next;
+        temp->next=deleteNode->next;
+        if (deleteNode==tail)
+        {
+            tail=temp;
+        }
+        delete deleteNode;
+}
 void print_linked_list(Node*  &head)
 {
     Node* temp=head;
