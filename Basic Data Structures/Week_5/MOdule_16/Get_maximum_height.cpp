@@ -56,7 +56,7 @@ int max_height(Node* root)
     if(root==NULL)
         return 0;
     if(root->left==NULL&&root->right==NULL)
-        return 0;
+        return 0;//depth ber korar somoy sudhu 0 er bodulote 1 hobe
     int l=max_height(root->left);
     int r=max_height(root->right);
     return max(l,r)+1;
