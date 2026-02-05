@@ -61,6 +61,7 @@ void desending_leaf(Node* root)
         
         if(p->left==NULL&&p->right==NULL)
         leafs.push_back(p->val);
+        
         if(p->left) q.push(p->left);
         if(p->right) q.push(p->right);
     }

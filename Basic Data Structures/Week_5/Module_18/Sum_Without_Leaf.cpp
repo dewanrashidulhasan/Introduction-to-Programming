@@ -31,6 +31,7 @@ Node* input_tree()
         int l,r;
         cin>>l>>r;
         Node *myLeft, *myRight;
+        
         if(l==-1)
         myLeft=NULL;
         else myLeft=new Node(l);
@@ -38,6 +39,7 @@ Node* input_tree()
         if(r==-1)
         myRight=NULL;
         else myRight=new Node(r);
+
         p->left=myLeft;
         p->right=myRight;
         if(p->left)
