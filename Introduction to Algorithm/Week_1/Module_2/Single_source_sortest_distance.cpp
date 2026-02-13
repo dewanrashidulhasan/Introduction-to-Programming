@@ -2,27 +2,30 @@
 using namespace std;
 vector<int> adj_list[1005];
 bool visited_array[1005];
+int level[1005];
 
 void bfs(int src)
 {
     queue<int> q;
     q.push(src);
     visited_array[src]=true;
+    level[src]=0;
     while (!q.empty())
     {
-        int par=q.front();
+        int parent_node=q.front();
         q.pop();
-        cout<<par<<" ";
 
-        for(int child: adj_list[par])
+        for(int child: adj_list[parent_node])
         {
             if (!visited_array[child])
             {
                 q.push(child);
                 visited_array[child]=true;
+                level[child]=level[parent_node]+1;
             }   
         }
     }
+    
     
 }
 int main()
@@ -38,6 +41,10 @@ int main()
         adj_list[b].push_back(a);
     }
     memset(visited_array,false,sizeof(visited_array));
-    bfs(0);
+    memset(level,-1,sizeof(level));
+    int src,dst;
+    cin>>src>>dst;
+    bfs(src);
+    cout<<level[dst]<<endl;
     return 0;
 }

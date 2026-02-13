@@ -10,11 +10,10 @@ void bfs(int src)
     visited_array[src]=true;
     while (!q.empty())
     {
-        int par=q.front();
+        int parent_node=q.front();
         q.pop();
-        cout<<par<<" ";
 
-        for(int child: adj_list[par])
+        for(int child: adj_list[parent_node])
         {
             if (!visited_array[child])
             {
@@ -23,6 +22,7 @@ void bfs(int src)
             }   
         }
     }
+    
     
 }
 int main()
@@ -38,6 +38,12 @@ int main()
         adj_list[b].push_back(a);
     }
     memset(visited_array,false,sizeof(visited_array));
-    bfs(0);
+    int src,dst;
+    cin>>src>>dst;
+    bfs(src);
+    if(visited_array[dst])
+        cout<<"YES"<<endl;
+    else
+        cout<<"NO"<<endl;
     return 0;
 }
