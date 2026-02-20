@@ -9,6 +9,7 @@ void bfs(int src)
     queue<int> q;
     q.push(src);
     vis[src]=true;
+    parent[src]=-1;
     while (!q.empty())
     {
         int par=q.front();
