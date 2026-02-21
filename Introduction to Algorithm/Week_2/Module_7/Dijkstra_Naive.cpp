@@ -26,7 +26,6 @@ void dijkstra(int src)
         }
     }    
 }
-using namespace std;
 int main()
 {
     int n,e;
