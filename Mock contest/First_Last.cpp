@@ -13,14 +13,15 @@ int main()
         cin>>x;
         if(pos.find(x)==pos.end())
         {
-            pos[x]={i,i};
+            pos[x].first=i;
+            pos[x].second=i;
             order.push_back(x);
         }  
         else 
             pos[x].second=i;
     }
     sort(order.begin(),order.end());
-    for(int val : order)
+    for(auto val : order)
     {
         cout<<val<<" "<<pos[val].first<<" "<<pos[val].second<<endl;
     }
