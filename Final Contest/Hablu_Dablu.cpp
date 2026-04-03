@@ -19,5 +19,5 @@ int main()
     if(h>full_damage)
         cout<<"Hablu\n";
     else cout<<"Dablu\n";
-    return 0;
+    return  0;
 }
