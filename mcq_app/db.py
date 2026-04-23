@@ -75,3 +75,76 @@ def seed_subjects(subject_names: list[str]) -> None:
             "INSERT OR IGNORE INTO subjects(name) VALUES (?)",
             [(name.strip(),) for name in subject_names if name.strip()],
         )
+
+
+def get_subjects() -> list[sqlite3.Row]:
+    with get_connection() as conn:
+        return conn.execute("SELECT id, name FROM subjects ORDER BY name").fetchall()
+
+
+def add_subject(name: str) -> bool:
+    try:
+        with get_connection() as conn:
+            conn.execute("INSERT INTO subjects(name) VALUES (?)", (name.strip(),))
+        return True
+    except sqlite3.IntegrityError:
+        return False
+
+
+def add_question(
+    subject_id: int,
+    question_text: str,
+    option_a: str,
+    option_b: str,
+    option_c: str,
+    option_d: str,
+    correct_option: str,
+    created_by: int | None,
+) -> None:
+    with get_connection() as conn:
+        conn.execute(
+            """
+            INSERT INTO questions(
+                subject_id, question_text, option_a, option_b, option_c, option_d,
+                correct_option, created_by
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                subject_id,
+                question_text.strip(),
+                option_a.strip(),
+                option_b.strip(),
+                option_c.strip(),
+                option_d.strip(),
+                correct_option.strip().upper(),
+                created_by,
+            ),
+        )
+
+
+def get_questions_for_subject(subject_id: int) -> list[sqlite3.Row]:
+    with get_connection() as conn:
+        return conn.execute(
+            """
+            SELECT id, question_text, option_a, option_b, option_c, option_d, correct_option
+            FROM questions
+            WHERE subject_id = ?
+            ORDER BY id DESC
+            """,
+            (subject_id,),
+        ).fetchall()
+
+
+def get_user_results(user_id: int) -> list[sqlite3.Row]:
+    with get_connection() as conn:
+        return conn.execute(
+            """
+            SELECT er.id, s.name AS subject_name, er.total_questions,
+                   er.correct_answers, er.score_percent, er.submitted_at
+            FROM exam_results er
+            JOIN subjects s ON s.id = er.subject_id
+            WHERE er.user_id = ?
+            ORDER BY er.id DESC
+            """,
+            (user_id,),
+        ).fetchall()

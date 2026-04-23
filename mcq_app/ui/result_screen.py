@@ -1,4 +1,4 @@
-"""Result screen placeholder."""
+"""Result screen."""
 
 from kivy.lang import Builder
 from kivymd.uix.screen import MDScreen
@@ -14,6 +14,10 @@ KV = '''
             id: result_label
             text: "No result yet"
             halign: "center"
+        MDRaisedButton:
+            text: "Back to Login"
+            pos_hint: {"center_x": .5}
+            on_release: app.root.current = "login"
 '''
 
 Builder.load_string(KV)

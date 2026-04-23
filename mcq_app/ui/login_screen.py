@@ -27,6 +27,11 @@ KV = '''
             text: "Login"
             pos_hint: {"center_x": .5}
             on_release: root.handle_login(username.text, password.text)
+
+        MDRaisedButton:
+            text: "Register as Student"
+            pos_hint: {"center_x": .5}
+            on_release: root.handle_register(username.text, password.text)
 '''
 
 Builder.load_string(KV)
@@ -35,3 +40,6 @@ Builder.load_string(KV)
 class LoginScreen(MDScreen):
     def handle_login(self, username: str, password: str) -> None:
         self.manager.app_login(username, password)
+
+    def handle_register(self, username: str, password: str) -> None:
+        self.manager.app_register_student(username, password)

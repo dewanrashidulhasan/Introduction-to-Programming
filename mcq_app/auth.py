@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import sqlite3
+
 import bcrypt
 
 from db import get_connection
@@ -20,6 +22,9 @@ def verify_password(password: str, password_hash: str) -> bool:
 
 def create_user(username: str, password: str, role: str = "student") -> bool:
     """Create user. Returns False if username already exists."""
+    if role not in {"admin", "student"}:
+        raise ValueError("Role must be admin or student")
+
     try:
         with get_connection() as conn:
             conn.execute(
@@ -27,7 +32,7 @@ def create_user(username: str, password: str, role: str = "student") -> bool:
                 (username.strip(), hash_password(password), role),
             )
         return True
-    except Exception:
+    except sqlite3.IntegrityError:
         return False
 
 
