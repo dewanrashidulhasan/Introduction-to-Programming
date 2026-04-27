@@ -40,7 +40,7 @@ int main()
             else if (a[r] == mx)
             {
                 r--;
-                mn--;
+                mx--;
             }
             else
             {
