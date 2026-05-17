@@ -10,7 +10,30 @@ int main()
     cin>>t;
     while (t--)
     {
-        /* code */
+        int n;
+        cin>>n;
+        vector<ll> a(n+1),b(n+1),run(n+1);
+        for (int i = 1; i <=n; i++)
+        {
+            cin>>a[i]>>b[i];
+        }
+        for (int i = 1; i <=n; i++)
+        {
+            cin>>run[i];
+        }
+        ll runtime=0;
+        for (int i = 1; i <=n; i++)
+        {
+            ll arrival=runtime+(a[i]-b[i-1])+run[i];
+            if (i==n)
+            {
+                cout<<arrival<<'\n';
+                break;
+            }
+            ll wait=(b[i]-a[i]+1)/2;
+            runtime=max(arrival+wait,b[i]);
+        }
+        
     }
     
     

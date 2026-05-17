@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Min-Max Query Simulation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap');
+
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1f2937;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #7d8590;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --amber: #f0883e;
+    --red: #f85149;
+    --purple: #bc8cff;
+    --teal: #39d353;
+    --midcol: #f0883e;
+    --formula: #ffd700;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans Bengali', sans-serif;
+    padding: 24px 16px;
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .tc-tabs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  .tab-btn {
+    padding: 8px 24px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+
+  .tab-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(88,166,255,0.08);
+  }
+
+  .tc-panel { display: none; }
+  .tc-panel.active { display: block; }
+
+  .step-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .nav-btn {
+    padding: 8px 20px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .nav-btn:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .nav-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .step-counter {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--muted);
+    min-width: 80px;
+    text-align: center;
+  }
+
+  /* Main simulation card */
+  .sim-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Query header */
+  .query-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .query-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .badge-update { background: rgba(248,81,73,0.15); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+  .badge-query  { background: rgba(88,166,255,0.15); color: var(--accent); border: 1px solid rgba(88,166,255,0.3); }
+
+  .query-raw {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: var(--formula);
+    font-weight: 700;
+  }
+
+  /* Array display */
+  .array-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .array-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .cell-idx {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+  }
+
+  .cell-val {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: 2px solid var(--border);
+    background: var(--surface2);
+    color: var(--text);
+    transition: all 0.35s ease;
+  }
+
+  .cell-val.dim     { opacity: 0.28; }
+  .cell-val.inrange { border-color: var(--border); opacity: 0.55; }
+  .cell-val.mid     { border-color: var(--midcol); background: rgba(240,136,62,0.18); color: var(--midcol); transform: scale(1.1); box-shadow: 0 0 14px rgba(240,136,62,0.35); }
+  .cell-val.midl    { border-color: var(--purple); background: rgba(188,140,255,0.18); color: var(--purple); transform: scale(1.1); box-shadow: 0 0 14px rgba(188,140,255,0.35); }
+  .cell-val.midr    { border-color: var(--teal); background: rgba(57,211,83,0.18); color: var(--teal); transform: scale(1.1); box-shadow: 0 0 14px rgba(57,211,83,0.35); }
+  .cell-val.updated { border-color: var(--red); background: rgba(248,81,73,0.18); color: var(--red); transform: scale(1.12); box-shadow: 0 0 14px rgba(248,81,73,0.35); }
+  .cell-val.single  { border-color: var(--green); background: rgba(63,185,80,0.18); color: var(--green); transform: scale(1.1); box-shadow: 0 0 14px rgba(63,185,80,0.35); }
+
+  /* Steps */
+  .steps-container {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .step-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .step-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .step-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(88,166,255,0.2);
+    border: 1px solid rgba(88,166,255,0.4);
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .step-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .step-text code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(255,255,255,0.07);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--formula);
+  }
+
+  .step-text .hl-o { color: var(--midcol); font-weight: 700; }
+  .step-text .hl-l { color: var(--purple); font-weight: 700; }
+  .step-text .hl-r { color: var(--teal); font-weight: 700; }
+  .step-text .hl-g { color: var(--green); font-weight: 700; }
+  .step-text .hl-r2{ color: var(--red); font-weight: 700; }
+
+  /* Answer box */
+  .answer-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: rgba(63,185,80,0.08);
+    border: 1px solid rgba(63,185,80,0.3);
+    border-radius: 10px;
+  }
+
+  .answer-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .answer-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--green);
+  }
+
+  .update-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: rgba(248,81,73,0.08);
+    border: 1px solid rgba(248,81,73,0.3);
+    border-radius: 10px;
+  }
+
+  .update-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .update-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--red);
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .legend-dot {
+    width: 12px; height: 12px;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Min-Max Query — Step-by-Step Simulation</h1>
+<p class="subtitle">প্রতিটি query কীভাবে কাজ করে তা ধাপে ধাপে দেখো</p>
+
+<div class="tc-tabs">
+  <button class="tab-btn active" onclick="switchTC(1)">Test Case 1</button>
+  <button class="tab-btn" onclick="switchTC(2)">Test Case 2</button>
+</div>
+
+<!-- Legend -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#f0883e"></div>center (mid)</div>
+  <div class="legend-dot" style="background:#bc8cff"></div><span style="font-size:.75rem;color:var(--muted)">midleft</span>
+  <div class="legend-dot" style="background:#39d353"></div><span style="font-size:.75rem;color:var(--muted)">midright</span>
+  <div class="legend-dot" style="background:#3fb950"></div><span style="font-size:.75rem;color:var(--muted)">single</span>
+  <div class="legend-dot" style="background:#f85149"></div><span style="font-size:.75rem;color:var(--muted)">updated</span>
+  <div class="legend-dot" style="background:#30363d;opacity:.4"></div><span style="font-size:.75rem;color:var(--muted)">outside range</span>
+</div>
+
+<!-- Test Case 1 -->
+<div class="tc-panel active" id="tc1">
+  <div class="step-nav">
+    <button class="nav-btn" onclick="prev(1)" id="prev1">← আগের</button>
+    <span class="step-counter" id="sc1">1 / 5</span>
+    <button class="nav-btn" onclick="next(1)" id="next1">পরের →</button>
+  </div>
+  <div class="sim-card" id="card1"></div>
+</div>
+
+<!-- Test Case 2 -->
+<div class="tc-panel" id="tc2">
+  <div class="step-nav">
+    <button class="nav-btn" onclick="prev(2)" id="prev2">← আগের</button>
+    <span class="step-counter" id="sc2">1 / 6</span>
+    <button class="nav-btn" onclick="next(2)" id="next2">পরের →</button>
+  </div>
+  <div class="sim-card" id="card2"></div>
+</div>
+
+<script>
+// ─── Data ───────────────────────────────────────────────────────────────
+const tc1_steps = [
+  {
+    type: 'query', raw: '2  1  3',
+    arr: [1, 2, 2], L: 1, R: 3,
+    M: 3, mid: 2,
+    arrLabel: 'Array শুরুতে: A = [_, 1, 2, 2]  (1-indexed)',
+    steps: [
+      { n:1, html:'M = R − L + 1 = 3 − 1 + 1 = <b>3</b> → বিজোড় (odd), তাই odd formula' },
+      { n:2, html:'mid = L + length/2 = 1 + 3/2 = 1 + 1 = <b class="hl-o">2</b>' },
+      { n:3, html:'Formula: <code>max(min(v[mid-1], v[mid]), min(v[mid], v[mid+1]))</code>' },
+      { n:4, html:'= max(min(v[<b class="hl-l">1</b>], v[<b class="hl-o">2</b>]), min(v[<b class="hl-o">2</b>], v[<b class="hl-r">3</b>]))' },
+      { n:5, html:'= max(min(<b class="hl-l">1</b>, <b class="hl-o">2</b>), min(<b class="hl-o">2</b>, <b class="hl-r">2</b>))' },
+      { n:6, html:'= max(<b>1</b>, <b>2</b>) = <b class="hl-g">2</b>' },
+    ],
+    answer: 2,
+    highlight: { mid:2 },
+  },
+  {
+    type: 'query', raw: '2  2  3',
+    arr: [1, 2, 2], L: 2, R: 3,
+    M: 2, mid: null,
+    arrLabel: 'Array এখন: A = [_, 1, 2, 2]',
+    steps: [
+      { n:1, html:'M = 3 − 2 + 1 = <b>2</b> → জোড় (even), তাই even formula' },
+      { n:2, html:'midleft = L + length/2 − 1 = 2 + 1 − 1 = <b class="hl-l">2</b>' },
+      { n:3, html:'midright = midleft + 1 = <b class="hl-r">3</b>' },
+      { n:4, html:'Formula: <code>max(v[midleft], v[midright])</code>' },
+      { n:5, html:'= max(v[<b class="hl-l">2</b>], v[<b class="hl-r">3</b>]) = max(<b class="hl-l">2</b>, <b class="hl-r">2</b>) = <b class="hl-g">2</b>' },
+    ],
+    answer: 2,
+    highlight: { midl:2, midr:3 },
+  },
+  {
+    type: 'update', raw: '1  3  3',
+    arr: [1, 2, 2], arrAfter: [1, 2, 3],
+    updateIdx: 3, updateVal: 3,
+    arrLabel: 'Array আগে: A = [_, 1, 2, 2]',
+    steps: [
+      { n:1, html:'Type 1 = Update query' },
+      { n:2, html:'u = 3, val = 3 → v[<b class="hl-r2">3</b>] := <b class="hl-r2">3</b>' },
+      { n:3, html:'Array পরিবর্তন হয়: [1, 2, <b class="hl-r2">2</b>] → [1, 2, <b class="hl-r2">3</b>]' },
+    ],
+  },
+  {
+    type: 'query', raw: '2  2  3',
+    arr: [1, 2, 3], L: 2, R: 3,
+    M: 2,
+    arrLabel: 'Array এখন: A = [_, 1, 2, 3]  (আগের update এর পর)',
+    steps: [
+      { n:1, html:'M = 3 − 2 + 1 = <b>2</b> → জোড়, even formula' },
+      { n:2, html:'midleft = 2 + 1 − 1 = <b class="hl-l">2</b>, midright = <b class="hl-r">3</b>' },
+      { n:3, html:'= max(v[<b class="hl-l">2</b>], v[<b class="hl-r">3</b>]) = max(<b class="hl-l">2</b>, <b class="hl-r">3</b>) = <b class="hl-g">3</b>' },
+    ],
+    answer: 3,
+    highlight: { midl:2, midr:3 },
+  },
+  {
+    type: 'query', raw: '2  1  1',
+    arr: [1, 2, 3], L: 1, R: 1,
+    M: 1,
+    arrLabel: 'Array এখন: A = [_, 1, 2, 3]',
+    steps: [
+      { n:1, html:'M = 1 − 1 + 1 = <b>1</b> → single element (base case)' },
+      { n:2, html:'উত্তর = v[L] = v[<b class="hl-g">1</b>] = <b class="hl-g">1</b>' },
+    ],
+    answer: 1,
+    highlight: { single:1 },
+  },
+];
+
+const tc2_steps = [
+  {
+    type: 'query', raw: '2  1  2',
+    arr: [3, 2, 1, 4], L: 1, R: 2,
+    M: 2,
+    arrLabel: 'Array শুরুতে: A = [_, 3, 2, 1, 4]  (1-indexed)',
+    steps: [
+      { n:1, html:'M = 2 − 1 + 1 = <b>2</b> → জোড়, even formula' },
+      { n:2, html:'midleft = 1 + 2/2 − 1 = 1 + 1 − 1 = <b class="hl-l">1</b>' },
+      { n:3, html:'midright = midleft + 1 = <b class="hl-r">2</b>' },
+      { n:4, html:'= max(v[<b class="hl-l">1</b>], v[<b class="hl-r">2</b>]) = max(<b class="hl-l">3</b>, <b class="hl-r">2</b>) = <b class="hl-g">3</b>' },
+    ],
+    answer: 3,
+    highlight: { midl:1, midr:2 },
+  },
+  {
+    type: 'update', raw: '1  1  3',
+    arr: [3, 2, 1, 4], arrAfter: [3, 2, 1, 4],
+    updateIdx: 1, updateVal: 3,
+    arrLabel: 'Array আগে: A = [_, 3, 2, 1, 4]',
+    steps: [
+      { n:1, html:'Type 1 = Update query' },
+      { n:2, html:'u = 1, val = 3 → v[<b class="hl-r2">1</b>] := <b class="hl-r2">3</b>' },
+      { n:3, html:'v[1] আগে থেকেই 3 ছিল → কোনো পরিবর্তন নেই' },
+      { n:4, html:'Array: [3, 2, 1, 4] (unchanged)' },
+    ],
+  },
+  {
+    type: 'query', raw: '2  1  2',
+    arr: [3, 2, 1, 4], L: 1, R: 2,
+    M: 2,
+    arrLabel: 'Array এখন: A = [_, 3, 2, 1, 4]',
+    steps: [
+      { n:1, html:'M = <b>2</b> → জোড়, same formula' },
+      { n:2, html:'midleft = <b class="hl-l">1</b>, midright = <b class="hl-r">2</b>' },
+      { n:3, html:'= max(<b class="hl-l">3</b>, <b class="hl-r">2</b>) = <b class="hl-g">3</b>' },
+    ],
+    answer: 3,
+    highlight: { midl:1, midr:2 },
+  },
+  {
+    type: 'query', raw: '2  3  3',
+    arr: [3, 2, 1, 4], L: 3, R: 3,
+    M: 1,
+    arrLabel: 'Array এখন: A = [_, 3, 2, 1, 4]',
+    steps: [
+      { n:1, html:'M = 3 − 3 + 1 = <b>1</b> → base case' },
+      { n:2, html:'উত্তর = v[<b class="hl-g">3</b>] = <b class="hl-g">1</b>' },
+    ],
+    answer: 1,
+    highlight: { single:3 },
+  },
+  {
+    type: 'update', raw: '1  4  2',
+    arr: [3, 2, 1, 4], arrAfter: [3, 2, 1, 2],
+    updateIdx: 4, updateVal: 2,
+    arrLabel: 'Array আগে: A = [_, 3, 2, 1, 4]',
+    steps: [
+      { n:1, html:'Type 1 = Update query' },
+      { n:2, html:'u = 4, val = 2 → v[<b class="hl-r2">4</b>] := <b class="hl-r2">2</b>' },
+      { n:3, html:'Array পরিবর্তন: [3, 2, 1, <b class="hl-r2">4</b>] → [3, 2, 1, <b class="hl-r2">2</b>]' },
+    ],
+  },
+  {
+    type: 'query', raw: '2  1  4',
+    arr: [3, 2, 1, 2], L: 1, R: 4,
+    M: 4,
+    arrLabel: 'Array এখন: A = [_, 3, 2, 1, 2]  (আগের update এর পর)',
+    steps: [
+      { n:1, html:'M = 4 − 1 + 1 = <b>4</b> → জোড়, even formula' },
+      { n:2, html:'midleft = 1 + 4/2 − 1 = 1 + 2 − 1 = <b class="hl-l">2</b>' },
+      { n:3, html:'midright = 2 + 1 = <b class="hl-r">3</b>' },
+      { n:4, html:'= max(v[<b class="hl-l">2</b>], v[<b class="hl-r">3</b>]) = max(<b class="hl-l">2</b>, <b class="hl-r">1</b>) = <b class="hl-g">2</b>' },
+    ],
+    answer: 2,
+    highlight: { midl:2, midr:3 },
+  },
+];
+
+const stepSets = { 1: tc1_steps, 2: tc2_steps };
+const stepIdx  = { 1: 0, 2: 0 };
+
+// ─── Render ─────────────────────────────────────────────────────────────
+function renderStep(tc) {
+  const steps = stepSets[tc];
+  const idx   = stepIdx[tc];
+  const s     = steps[idx];
+  const card  = document.getElementById('card' + tc);
+
+  document.getElementById('sc' + tc).textContent = `${idx+1} / ${steps.length}`;
+  document.getElementById('prev' + tc).disabled = idx === 0;
+  document.getElementById('next' + tc).disabled = idx === steps.length - 1;
+
+  // Display array (use arrAfter only if update step + showing after state)
+  const displayArr = s.arr; // always show current state
+
+  let html = '';
+
+  // Query header
+  const badgeCls  = s.type === 'update' ? 'badge-update' : 'badge-query';
+  const badgeText = s.type === 'update' ? 'UPDATE' : 'QUERY';
+  html += `<div class="query-header">
+    <span class="query-badge ${badgeCls}">${badgeText}</span>
+    <span class="query-raw">${s.raw}</span>
+  </div>`;
+
+  // Array label
+  html += `<div class="array-label">${s.arrLabel}</div>`;
+
+  // Array cells
+  html += `<div class="array-row">`;
+  for (let i = 1; i <= displayArr.length; i++) {
+    let cls = '';
+    if (s.type === 'query') {
+      if (i < s.L || i > s.R) cls = 'dim';
+      else if (s.highlight?.single === i) cls = 'single';
+      else if (s.highlight?.mid === i)  cls = 'mid';
+      else if (s.highlight?.midl === i) cls = 'midl';
+      else if (s.highlight?.midr === i) cls = 'midr';
+      else cls = 'inrange';
+    } else {
+      if (s.updateIdx === i) cls = 'updated';
+    }
+    html += `<div class="cell">
+      <span class="cell-idx">i=${i}</span>
+      <div class="cell-val ${cls}">${displayArr[i-1]}</div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // If update, show "after" row
+  if (s.type === 'update' && s.arrAfter) {
+    const changed = s.arr.some((v,i)=>v!==s.arrAfter[i]);
+    if (changed) {
+      html += `<div class="array-label" style="margin-top:-6px">Array পরিবর্তনের পর:</div>`;
+      html += `<div class="array-row">`;
+      for (let i = 1; i <= s.arrAfter.length; i++) {
+        const cls = (s.updateIdx === i) ? 'updated' : '';
+        html += `<div class="cell">
+          <span class="cell-idx">i=${i}</span>
+          <div class="cell-val ${cls}">${s.arrAfter[i-1]}</div>
+        </div>`;
+      }
+      html += `</div>`;
+    }
+  }
+
+  // Steps
+  html += `<div class="steps-container">`;
+  html += `<div class="step-title">→ কীভাবে হিসাব হচ্ছে</div>`;
+  for (const step of s.steps) {
+    html += `<div class="step-row">
+      <div class="step-num">${step.n}</div>
+      <div class="step-text">${step.html}</div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // Answer or update result
+  if (s.type === 'query') {
+    html += `<div class="answer-box">
+      <span class="answer-label">OUTPUT →</span>
+      <span class="answer-val">${s.answer}</span>
+    </div>`;
+  } else {
+    const nochange = !s.arrAfter || s.arr.every((v,i)=>v===s.arrAfter[i]);
+    html += `<div class="update-box">
+      <span class="update-label">ARRAY UPDATE →</span>
+      <span class="update-val">
+        ${nochange ? 'কোনো পরিবর্তন নেই (same value)' : `v[${s.updateIdx}] = ${s.updateVal} ✓`}
+      </span>
+    </div>`;
+  }
+
+  card.innerHTML = html;
+}
+
+function next(tc) { stepIdx[tc]++; renderStep(tc); }
+function prev(tc) { stepIdx[tc]--; renderStep(tc); }
+
+function switchTC(tc) {
+  document.querySelectorAll('.tc-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tc'+tc).classList.add('active');
+  document.querySelectorAll('.tab-btn')[tc-1].classList.add('active');
+  renderStep(tc);
+}
+
+// Init
+renderStep(1);
+renderStep(2);
+</script>
+</body>
+</html>
