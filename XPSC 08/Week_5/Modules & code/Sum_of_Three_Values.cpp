@@ -8,19 +8,34 @@ int main()
     cin.tie(nullptr);
     ll n,x;
     cin>>n>>x;
-    map<ll,ll> pos;
-    for (int i = 1; i <=n; i++)
+    vector<pair<ll,ll>> a(n);
+    for (int i = 0; i < n; i++)
     {
-        ll m;
-        cin>>m;
-        ll val =x-m;
-        if (pos.find(val)!=pos.end())
-        {
-            cout<<pos[val]<<" "<<i<<'\n';
-            return 0;
-        }
-        else pos[m]=i;
+        cin>>a[i].first;
+        a[i].second=i+1;
     }
+    sort(a.begin(),a.end());
+    for (int i = 0; i < n; i++)
+    {
+        int left=i+1;
+        int right=n-1;
+        while (left<right)
+        {
+            ll sum=a[i].first+a[left].first+a[right].first;
+            if (sum==x)
+            {
+                cout<<a[left].second<<" "<<a[right].second<<" "<<a[i].second<<'\n';
+                return 0;
+            }
+            if (sum<x)
+            {
+                left++;
+            }
+            else right--;
+        }
+        
+    }
+    
     cout<<"IMPOSSIBLE\n";
     
     return 0;
