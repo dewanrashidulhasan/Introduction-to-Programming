@@ -12,45 +12,39 @@ int main()
     {
         int n,k;
         cin>>n>>k;
-        vector<int> a;
+        vector<int> a(k,0);
         for (int i = 0; i < n; i++)
         {
             string s;
             cin>>s;
-            int mask=0;
-            for(char c:s)
+            int one=0;
+            int pos=-1;
+            for (int j = 0; j < k; j++)
             {
-                mask=(mask<<1)+(c-'0');
-            }
-            a.push_back(mask);
-        }
-        int lim=1<<k;
-        vector<bool> dp(lim,false);
-        dp[0]=true;
-        for(int x:a)
-        {
-            vector<bool> ndp=dp;
-            for (int i = 0; i < lim; i++)
-            {
-                if (dp[i])
+                if (s[j]=='1')
                 {
-                    ndp[i|x]=true;
+                    one++;
+                    pos=j;
                 }
                 
             }
-            dp=ndp;
-        }
-        bool ok=true;
-        for (int i = 1; i < lim; i++)
-        {
-            if (!dp[i])
+            if (one==1)
             {
-                ok=false;
+                a[pos]=1;
+            }
+            
+        }
+        bool possible=true;
+        for (int i = 0; i < k; i++)
+        {
+            if (!a[i])
+            {
+                possible=false;
                 break;
             }
             
         }
-        if (ok)
+        if (possible)
         {
             cout<<"YES\n";
         }
