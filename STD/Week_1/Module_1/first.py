@@ -1,0 +1,1 @@
+print('kopa python kopa')
