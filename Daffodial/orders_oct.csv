@@ -1,0 +1,209 @@
+order_id,customer,city,age,product,price,qty,date
+1073,Priya ,Ctg,18,Earphone,2100,2,09-10-2026
+1094,Jannat,Ctg,27,Charger,650,3,04-10-2026
+1107,Karim,ctg,41,Charger,1480,2,06-10-2026
+1194,Lima,dhaka,58,Mobile,15600,2,16-10-2026
+1102,Rafi,Dhaka,49,Earphone,3420,1,25-10-2026
+1050,Hasan,khulna,,Earphone,1040,1,26-10-2026
+1023,Sumi,Chattogram,39,Earphone,2800,2,27-10-2026
+1008,Nayeem, Sylhet,49,Mobile,32130,3,15-10-2026
+1129,Hasan ,Dhaka ,27,Mobile,26700,1,21-10-2026
+1144,Rafi, dhaka ,,Earphone,3220,3,31-10-2026
+1011,Sumi,CHATTOGRAM,48,Charger,1200,1,02-10-2026
+1106,Nila,,39,Earphone,1310,3,30-10-2026
+1074,Arif ,RAJSHAHI,36,Mobile,28300,1,15-10-2026
+1049,Sakib,Dhaka,35,Earphone,2840,2,28-10-2026
+1189,Lima,Dhaka,24,Earphone,2520,1,09-10-2026
+1115,Tania,dhaka,29,Charger,510,3,10-10-2026
+1029,Ruma,Rajshahi,24,Earphone,1410,1,11-10-2026
+1121,Jannat,Dhaka,,Charger,,2,07-10-2026
+1195,Lima ,,59,Smart Watch,4630,1,13-10-2026
+1009,Nila ,dhaka,28,Mobile,29410,1,30-10-2026
+1018,Tanvir ,Ctg.,,Earphone,2570,3,02-10-2026
+1200,Lima ,DHAKA,55,Charger,,1,10-10-2026
+1105,Tanvir, dhaka ,21,Smart Watch,3700,2,29-10-2026
+1032,Hasan,ctg,23,Mobile,28670,1,05-10-2026
+1117,Mitu,ctg,22,Charger,1150,2,18-10-2026
+1166,Sumi , dhaka ,28,Laptop,58020,1,27-10-2026
+1101,Tania,RAJSHAHI,,Laptop,63120,2,07-10-2026
+1158,Rahim,Dhaka ,40,Earphone,2410,2,15-10-2026
+1188,Mitu ,Rajshahi,30,Mobile,20840,1,26-10-2026
+1182,Ruma,DHAKA,34,Mobile,21850,2,17-10-2026
+1112,Priya,DHAKA,35,Mobile,19700,2,02-10-2026
+1034,Sadia ,Rajshahi,,Laptop,45710,3,21-10-2026
+1053,Priya,Rajshahi,51,Earphone,2720,1,06-10-2026
+1075,Sadia,CHATTOGRAM,23,Mobile,33530,1,10-10-2026
+1155,Rahim ,DHAKA,37,Mobile,14450,1,18-10-2026
+1161,Arif ,Dhaka ,59,Charger,1010,3,14-10-2026
+1014,Hasan,dhaka,23,Laptop,53320,2,18-10-2026
+1072,Karim ,Ctg,22,Earphone,2420,1,09-10-2026
+1174,Lima, dhaka ,40,Earphone,1490,1,02-10-2026
+1063,Sumi, dhaka ,27,Mobile,21190,1,13-10-2026
+1109,Hasan,RAJSHAHI,45,Laptop,49390,3,16-10-2026
+1069,Sakib,ctg,22,Charger,1250,one,29-10-2026
+1171,Karim ,,20,Laptop,48290,2,25-10-2026
+1058,Hasan,Khulna,,Laptop,3500000,3,24-10-2026
+1086,Sakib ,DHAKA,43,Earphone,2570,1,16-10-2026
+1172,Sumi ,dhaka,24,Smart Watch,4100,1,04-10-2026
+1070,Sumi ,ctg,34,Smart Watch,7760,1,08-10-2026
+1067,Nayeem ,Khulna,23,Mobile,12720,1,21-10-2026
+1153,Imran , dhaka ,20,Smart Watch,3940,1,20-10-2026
+1098,Sadia,ctg,35,Mobile,34060,3,27-10-2026
+1118,Lima,Chattogram,34,Laptop,76230,1,04-10-2026
+1001,Hasan , dhaka ,22,Laptop,86060,1,12-10-2026
+1193,Jannat ,Sylhet,59,Smart Watch,3310,2,11-10-2026
+1020,Arif,Dhaka,25,Mobile,19820,1,04-10-2026
+1059,Mitu,Khulna,60,Charger,,2,22-10-2026
+1119,Mitu,Dhaka,,Charger,960,3,08-10-2026
+1090,Hasan,Dhaka ,31,Charger,880,1,25-10-2026
+1132,Lima,dhaka,25,Mobile,30870,2,19-10-2026
+1133,Mitu,Khulna,21,Charger,1050,3,26-10-2026
+1057,Hasan ,CHATTOGRAM,,Smart Watch,8890,1,07-10-2026
+1177,Sumi ,CHATTOGRAM,28,Laptop,66800,2,07-10-2026
+1130,Lima,DHAKA,44,Earphone,3370,1,24-10-2026
+1178,Rahim,dhaka,24,Mobile,23300,1,31-10-2026
+1173,Farhana, dhaka ,26,Mobile,14250,3,07-10-2026
+1012,Nayeem ,sylhet,230,Earphone,2730,3,12-10-2026
+1100,Arif,dhaka,23,Mobile,17920,3,14-10-2026
+1039,Karim, Sylhet,51,Smart Watch,5950,2,26-10-2026
+1041,Sumi,CHATTOGRAM,57,Mobile,34390,2,17-10-2026
+1025,Farhana , dhaka ,34,Smart Watch,5870,1,12-10-2026
+1198,Imran,khulna,31,Smart Watch,8940,1,13-10-2026
+1016,Tanvir,Dhaka,27,Laptop,56600,1,01-10-2026
+1080,Imran,khulna,25,Mobile,33620,1,23-10-2026
+1091,Nayeem,,50,Earphone,,1,03-10-2026
+1045,Tanvir,Sylhet,47,Earphone,1390,1,13-10-2026
+1162,Rafi,Sylhet,37,Laptop,76300,3,26-10-2026
+1035,Lima,Dhaka,19,Laptop,57590,1,17-10-2026
+1180,Mitu,Chattogram,49,Charger,1290,3,18-10-2026
+1165,Karim,Ctg.,,Earphone,2650,2,09-10-2026
+1052,Sumi,Chattogram,47,Laptop,45580,2,14-10-2026
+1140,Farhana ,ctg,37,Smart Watch,6290,2,13-10-2026
+1046,Jannat,khulna,50,Laptop,65190,2,07-10-2026
+1131,Lima,Chattogram,41,Earphone,2540,2,24-10-2026
+1038,Mitu ,,27,Charger,670,2,20-10-2026
+1007,Fahim ,dhaka,41,Earphone,1610,1,23-10-2026
+1103,Fahim,khulna,,Laptop,50450,2,16-10-2026
+1033,Fahim ,Dhaka,57,Smart Watch,,2,22-10-2026
+1159,Tania,Ctg,18,Smart Watch,2790,2,01-10-2026
+1114,Jannat,RAJSHAHI,47,Mobile,33940,2,26-10-2026
+1056,Rafi,Ctg,46,Laptop,50310,3,14-10-2026
+1142,Fahim,dhaka,43,Smart Watch,3200,1,12-10-2026
+1027,Jannat,Dhaka ,49,Charger,860,1,01-10-2026
+1071,Jannat , Sylhet,47,Laptop,69700,2,03-10-2026
+1152,Jannat, Sylhet,21,Charger,800,2,09-10-2026
+1061,Ruma,Dhaka ,38,Earphone,1460,1,07-10-2026
+1197,Fahim ,Dhaka,48,Smart Watch,5830,3,26-10-2026
+1148,Rafi,CHATTOGRAM,41,Smart Watch,2740,1,13-10-2026
+1085,Farhana,Chattogram,53,Laptop,51370,2,14-10-2026
+1111,Hasan,ctg,20,Laptop,68200,1,09-10-2026
+1044,Lima,Dhaka,60,Laptop,60140,1,29-10-2026
+1017,Mitu,CHATTOGRAM,18,Smart Watch,3450,2,12-10-2026
+1081,Sakib, dhaka ,43,Earphone,1850,2,03-10-2026
+1170,Nila ,Dhaka,40,Mobile,34480,3,01-10-2026
+1092,Hasan,dhaka,45,Laptop,92700,1,05-10-2026
+1028,Sakib, Sylhet,56,Charger,1460,2,26-10-2026
+1005,Sadia ,Dhaka,24,Earphone,2370,3,07-10-2026
+1183,Fahim,Dhaka ,56,Laptop,82720,2,21-10-2026
+1097,Farhana ,Dhaka ,30,Mobile,20930,three,26-10-2026
+1063,Sumi, dhaka ,27,Mobile,21190,1,13-10-2026
+1062,Imran, dhaka ,48,Mobile,18420,3,07-10-2026
+1066,Lima ,Dhaka ,26,Smart Watch,8410,2,19-10-2026
+1013,Ruma,Dhaka ,25,Charger,990,1,25-10-2026
+1186,Arif,CHATTOGRAM,57,Smart Watch,3500,1,08-10-2026
+1138,Arif,ctg,51,Smart Watch,3520,1,04-10-2026
+1095,Sumi ,Rajshahi,18,Charger,1280,1,19-10-2026
+1088,Fahim,Dhaka,53,Earphone,1320,1,06-10-2026
+1006,Sumi , dhaka ,57,Smart Watch,3840,3,18-10-2026
+1079,Hasan,Rajshahi,44,Charger,840,1,04-10-2026
+1185,Sakib ,Dhaka,,Charger,830,3,29-10-2026
+1187,Rafi,Sylhet,33,Smart Watch,4630,1,09-10-2026
+1135,Sumi,dhaka,,Laptop,82680,1,10-10-2026
+1147,Fahim,khulna,50,Earphone,3400,2,07-10-2026
+1047,Ruma,DHAKA,53,Mobile,22550,3,01-10-2026
+1082,Sakib,DHAKA,24,Charger,550,3,10-10-2026
+1185,Sakib ,Dhaka,,Charger,830,3,29-10-2026
+1010,Sumi ,Ctg.,38,Mobile,19820,1,20-10-2026
+1087,Nila,Ctg,22,Charger,710,2,18-10-2026
+1168,Tania,Khulna,19,Smart Watch,5340,3,08-10-2026
+1151,Ruma,RAJSHAHI,41,Charger,1080,1,11-10-2026
+1092,Hasan,dhaka,45,Laptop,92700,1,05-10-2026
+1096,Tanvir ,khulna,51,Earphone,2520,3,25-10-2026
+1134,Nayeem ,khulna,50,Mobile,15950,1,10-10-2026
+1181,Ruma,sylhet,43,Earphone,3210,one,03-10-2026
+1139,Karim , dhaka ,60,Laptop,86910,1,13-10-2026
+1146,Jannat,RAJSHAHI,57,Laptop,82810,1,11-10-2026
+1078,Ruma,dhaka,49,Mobile,21060,1,01-10-2026
+1042,Fahim ,Dhaka ,48,Earphone,2170,1,23-10-2026
+1002,Arif,Chattogram,45,Smart Watch,5220,1,03-10-2026
+1167,Imran,sylhet,39,Laptop,,2,30-10-2026
+1128,Farhana,Dhaka,20,Smart Watch,7670,2,16-10-2026
+1064,Jannat,Dhaka ,51,Earphone,3100,1,22-10-2026
+1126,Priya,Dhaka,20,Smart Watch,4900,1,02-10-2026
+1176,Rahim,Dhaka ,24,Charger,850,two,02-10-2026
+1120,Farhana,,54,Mobile,18160,1,24-10-2026
+1124,Nila,Khulna,56,Laptop,93650,2,07-10-2026
+1196,Karim,Khulna,28,Mobile,28470,1,17-10-2026
+1154,Rafi,Chattogram,26,Charger,990,2,21-10-2026
+1072,Karim ,Ctg,22,Earphone,2420,1,09-10-2026
+1122,Sakib,Dhaka ,51,Charger,730,1,21-10-2026
+1192,Nayeem , Sylhet,59,Charger,920,1,22-10-2026
+1175,Imran , Sylhet,48,Earphone,3100,2,24-10-2026
+1108,Sakib,DHAKA,44,Mobile,33980,1,18-10-2026
+1068,Hasan,Dhaka ,21,Mobile,26440,3,18-10-2026
+1031,Hasan ,Khulna,48,Mobile,32450,2,26-10-2026
+1143,Fahim ,Dhaka ,60,Mobile,12940,3,05-10-2026
+1030,Priya,dhaka,59,Smart Watch,4740,3,03-10-2026
+1113,Sakib, dhaka ,56,Earphone,3270,3,31-10-2026
+1021,Sadia,DHAKA,57,Laptop,46280,1,20-10-2026
+1191,Fahim,Dhaka,34,Earphone,2430,2,01-10-2026
+1055,Sakib,Chattogram,,Laptop,46850,1,24-10-2026
+1127,Karim ,Dhaka,18,Earphone,3010,2,22-10-2026
+1051,Sumi,Chattogram,58,Charger,590,1,03-10-2026
+1077,Rafi,CHATTOGRAM,26,Laptop,75170,3,17-10-2026
+1141,Rafi,,19,Charger,189000,2,15-10-2026
+1024,Rahim,Ctg.,41,Smart Watch,3450,2,30-10-2026
+1179,Rafi,Ctg.,28,Earphone,1570,1,31-10-2026
+1157,Tanvir, dhaka ,22,Laptop,76910,3,26-10-2026
+1043,Sadia,ctg,,Earphone,1920,2,15-10-2026
+1137,Mitu ,Khulna,57,Smart Watch,5130,1,27-10-2026
+1104,Tania,Chattogram,56,Laptop,52320,2,02-10-2026
+1184,Imran ,Dhaka,46,Smart Watch,6800,3,11-10-2026
+1199,Priya,Chattogram,,Mobile,18310,2,02-10-2026
+1190,Fahim, dhaka ,,Charger,1350,2,23-10-2026
+1116,Priya,khulna,38,Laptop,68040,2,03-10-2026
+1048,Priya,Dhaka ,22,Smart Watch,3230,1,29-10-2026
+1060,Jannat ,RAJSHAHI,20,Smart Watch,5490,1,09-10-2026
+1037,Nayeem ,sylhet,50,Charger,630,1,17-10-2026
+1149,Imran,Dhaka,34,Earphone,1110,2,02-10-2026
+1026,Sadia ,sylhet,58,Smart Watch,3950,1,26-10-2026
+1156,Farhana ,Dhaka,31,Smart Watch,4880,2,06-10-2026
+1065,Hasan,khulna,27,Smart Watch,4350,2,21-10-2026
+1076,Fahim,,31,Smart Watch,8460,1,03-10-2026
+1168,Tania,Khulna,19,Smart Watch,5340,3,08-10-2026
+1019,Hasan,ctg,43,Smart Watch,3170,3,13-10-2026
+1054,Arif,DHAKA,51,Laptop,82970,1,15-10-2026
+1003,Nayeem,Ctg,58,Mobile,6500000,1,19-10-2026
+1124,Nila,KHULNA,56,Laptop,93650,2,07-10-2026
+1004,Jannat,Ctg.,26,Mobile,18660,1,18-10-2026
+1150,Fahim ,Ctg.,55,Earphone,2660,1,09-10-2026
+1163,Rahim,ctg,,Smart Watch,3020,3,15-10-2026
+1089,Imran,DHAKA,2,Mobile,30620,1,29-10-2026
+1136,Tania, dhaka ,56,Mobile,33300,2,03-10-2026
+1036,Imran,Dhaka ,44,Smart Watch,7920,1,30-10-2026
+1084,Hasan ,Rajshahi,23,Mobile,13140,3,14-10-2026
+1145,Sumi , Sylhet,25,Mobile,16460,2,10-10-2026
+1001,Hasan , dhaka ,22,Laptop,86060,1,12-10-2026
+1015,Lima ,DHAKA,44,Laptop,94320,3,29-10-2026
+1099,Rafi,Khulna,19,Charger,1460,3,21-10-2026
+1078,Ruma,dhaka,49,Mobile,21060,1,01-10-2026
+1040,Karim,Sylhet,35,Smart Watch,2770,1,17-10-2026
+1093,Nayeem, dhaka ,22,Charger,890,2,28-10-2026
+1169,Arif,Ctg.,55,Earphone,1010,1,05-10-2026
+1022,Ruma ,DHAKA,48,Earphone,1130,2,15-10-2026
+1164,Sakib,,25,Mobile,19720,3,30-10-2026
+1160,Mitu, dhaka ,18,Laptop,75630,3,31-10-2026
+1110,Fahim,DHAKA,41,Smart Watch,7290,2,01-10-2026
+1125,Rafi,RAJSHAHI,56,Earphone,1500,3,31-10-2026
+1123,Nila,ctg,32,Mobile,31330,1,02-10-2026
+1083,Jannat,ctg,50,Laptop,60780,1,26-10-2026
