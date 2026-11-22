@@ -1,0 +1,1 @@
+{"name":"Local: set","url":"d:\\Phitron\\Introduction-to-Programming\\STD\\Week_1\\Module_3\\set.py","tests":[{"id":1795370330470,"input":"12 23 32 34 25 32 85\n13 23 33 35 26 33 86","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Phitron\\Introduction-to-Programming\\STD\\Week_1\\Module_3\\set.py","group":"local","local":true}
